@@ -46,6 +46,8 @@ function App() {
     fetchData();
   }, [input]);
 
+  const bgColors = ['#fff', '#F5F5F5'];
+
   return (
     <div>
       <Header />
@@ -62,6 +64,7 @@ function App() {
         ) : (
           movies.map((movie, id) => (
             <MovieCard
+              bgColor={bgColors[id % bgColors.length]}
               key={id}
               title={movie.original_title}
               imgExtention={movie.poster_path ? movie.poster_path : ''}
