@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -62,3 +63,11 @@ export default function MovieCard({
     </Card>
   );
 }
+
+MovieCard.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  overview: PropTypes.string,
+  imgExtention: PropTypes.string,
+  bgColor: PropTypes.string
+};
