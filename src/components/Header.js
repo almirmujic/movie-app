@@ -18,7 +18,7 @@ const Table = styled.table`
 export default function Header() {
   return (
     <Table>
-      <tbody style={{ maxWidth: '980px', margin: '0 auto' }}>
+      <tbody>
         <tr>
           <td>
             <img
