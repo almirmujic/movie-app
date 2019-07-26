@@ -62,14 +62,14 @@ function App() {
         {input === '' ? (
           <h2 style={{ paddingLeft: '8px' }}>Please search for a film...</h2>
         ) : (
-          movies.map((movie, id) => (
+          movies.map(({ original_title, poster_path, overview, id }, key) => (
             <MovieCard
-              bgColor={bgColors[id % bgColors.length]}
-              key={id}
-              title={movie.original_title}
-              imgExtention={movie.poster_path ? movie.poster_path : ''}
-              overview={movie.overview}
-              id={movie.id}
+              bgColor={bgColors[key % bgColors.length]}
+              key={key}
+              title={original_title}
+              imgExtention={poster_path ? poster_path : ''}
+              overview={overview}
+              id={id}
             />
           ))
         )}
