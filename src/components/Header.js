@@ -2,12 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Table = styled.table`
-  background-color: #333;
+  background-color: #081c24;
   display: block;
   color: #fff;
+  padding-top: 8px;
+  padding-bottom: 4px;
   img {
     padding-left: 16px;
-    padding-top: 8px;
   }
   h1 {
     padding-left: 10px;
@@ -17,7 +18,7 @@ const Table = styled.table`
 export default function Header() {
   return (
     <Table>
-      <tbody>
+      <tbody style={{ maxWidth: '980px', margin: '0 auto' }}>
         <tr>
           <td>
             <img
