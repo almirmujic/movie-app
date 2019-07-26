@@ -35,24 +35,28 @@ const Button = styled.button`
   }
 `;
 
-export default function MovieCard(props) {
+export default function MovieCard({
+  id,
+  imgExtention,
+  bgColor,
+  title,
+  overview
+}) {
   const imgUrl = 'https://image.tmdb.org/t/p/w185';
 
   const onView = e => {
-    const url = 'https://www.themoviedb.org/movie/' + props.id;
+    const url = 'https://www.themoviedb.org/movie/' + id;
     window.location.href = url;
   };
 
-  const imgProvided = props.imgExtention
-    ? `${imgUrl}/${props.imgExtention}`
-    : '';
+  const imgProvided = imgExtention ? `${imgUrl}/${imgExtention}` : '';
 
   return (
-    <Card style={{ backgroundColor: `${props.bgColor}` }}>
-      <Img src={imgProvided} alt={props.title} />
+    <Card style={{ backgroundColor: `${bgColor}` }}>
+      <Img src={imgProvided} alt={title} />
       <div>
-        <h2>{props.title}</h2>
-        <p>{props.overview}</p>
+        <h2>{title}</h2>
+        <p>{overview}</p>
         <Button onClick={onView}>View</Button>
       </div>
     </Card>
