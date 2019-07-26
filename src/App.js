@@ -29,14 +29,16 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        let response = await fetch(
-          'https://api.themoviedb.org/3/search/movie?&api_key=' +
-            API_KEY +
-            (input ? '&query=' + input : '')
-        );
-        let data = await response.json();
-        console.log(data);
-        setMovies(data.results);
+        // if statement to prevent error status 422, only fetch if query provided
+        if (input) {
+          let response = await fetch(
+            'https://api.themoviedb.org/3/search/movie?&api_key=' +
+              API_KEY +
+              (input ? '&query=' + input : '')
+          );
+          let data = await response.json();
+          setMovies(data.results);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -55,8 +57,8 @@ function App() {
         onChange={onChange}
       />
       <div className="container">
-        {movies === undefined ? (
-          <h2>Please search for a film...</h2>
+        {input === '' ? (
+          <h2 style={{ paddingLeft: '8px' }}>Please search for a film...</h2>
         ) : (
           movies.map((movie, id) => (
             <MovieCard
@@ -64,6 +66,7 @@ function App() {
               title={movie.original_title}
               imgExtention={movie.poster_path ? movie.poster_path : ''}
               overview={movie.overview}
+              id={movie.id}
             />
           ))
         )}
