@@ -11,7 +11,6 @@ const Card = styled.div`
   }
   div {
     padding: 1rem;
-    max-width: 400px;
     align-self: center;
   }
 `;
@@ -19,12 +18,17 @@ const Card = styled.div`
 export default function MovieCard(props) {
   const imgUrl = 'https://image.tmdb.org/t/p/w185';
 
+  const imgProvided = props.imgExtention
+    ? `${imgUrl}/${props.imgExtention}`
+    : '';
+
   return (
     <Card>
-      <img src={`${imgUrl}/${props.imgExtention}`} alt={props.title} />
+      <img src={imgProvided} alt={props.title} />
       <div>
         <h2>{props.title}</h2>
         <p>{props.overview}</p>
+        <input type="button">View</input>
       </div>
     </Card>
   );
