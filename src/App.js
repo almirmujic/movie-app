@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Header from './components/Header';
 import MovieCard from './components/MovieCard';
 
@@ -54,7 +55,6 @@ function App() {
       <FilmInput
         type="text"
         name="input"
-        id=""
         placeholder="Search for a movie..."
         onChange={onChange}
       />
@@ -77,5 +77,10 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  input: PropTypes.string,
+  movies: PropTypes.array
+};
 
 export default App;
