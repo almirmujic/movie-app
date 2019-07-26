@@ -48,7 +48,7 @@ export default function MovieCard(props) {
     : '';
 
   return (
-    <Card>
+    <Card style={{ backgroundColor: `${props.bgColor}` }}>
       <Img src={imgProvided} alt={props.title} />
       <div>
         <h2>{props.title}</h2>
