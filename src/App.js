@@ -60,7 +60,7 @@ function App() {
       />
       <div className="container">
         {input === '' ? (
-          <h2 style={{ paddingLeft: '8px' }}>Please search for a film...</h2>
+          <h2 style={{ paddingLeft: '8px' }}>Please search for a movie...</h2>
         ) : (
           movies.map(({ original_title, poster_path, overview, id }, key) => (
             <MovieCard
